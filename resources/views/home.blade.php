@@ -1,4 +1,7 @@
 <x-layout>
+
+    <x-navbar />
+
     <div 
         x-data="{
             openTab: 1,

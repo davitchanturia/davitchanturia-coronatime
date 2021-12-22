@@ -24,19 +24,19 @@
                         <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-bold text-tableDataColor uppercase tracking-wider">
+                                    class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
                                     Location
                                 </th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-bold text-tableDataColor uppercase tracking-wider">
+                                    class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
                                     New cases
                                 </th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-bold text-tableDataColor uppercase tracking-wider">
+                                    class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
                                     Death
                                 </th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-bold text-tableDataColor uppercase tracking-wider">
+                                    class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
                                     Recovered
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
@@ -46,16 +46,16 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-tableDataColor">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-darkBlack">
                                     Albania
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-tableDataColor">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
                                     9,747,000
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-tableDataColor">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
                                     66,591
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-tableDataColor">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
                                     5,803,905
                                 </td>
                             </tr>

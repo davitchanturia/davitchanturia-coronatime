@@ -17,7 +17,10 @@ module.exports = {
         recoveredNum: '#0FBA68',
         death: '#fdfced',
         deathNum: '#EAD621',
-        tableDataColor: '#010414',
+        darkBlack: '#010414',
+        grey: '#808189',
+        forgotPas: '#2029F3',
+        greenButton: '#0FBA68',
       }
     },
   },
