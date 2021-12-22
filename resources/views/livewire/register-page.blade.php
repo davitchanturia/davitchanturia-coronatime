@@ -6,8 +6,8 @@
             </div>
     
             <div class="mt-14">
-                <h1 class="font-bold text-2xl">Welcome back</h1>
-                <p class="text-sm sm:text-xl text-grey mt-4">Welcome back! please enter your details</p>
+                <h1 class="font-bold text-2xl">Welcome to Coronatime</h1>
+                <p class="text-sm sm:text-xl text-grey mt-4">Please enter required info to sign up</p>
             </div>
     
             <form method='POST' action='/' class="md:px-4">
@@ -16,7 +16,16 @@
                     <label for="username">Username</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
                         <input class="outline-none w-full" type="text" name="username" 
-                            placeholder="Enter unique username or email">
+                            placeholder="Enter unique username">
+                    </div>
+                    <p class="text-grey text-sm mt-1">Username should be unique, min 3 symbols</p>
+                </div>
+
+                <div class="mt-6">
+                    <label for="email">Email</label> <br>
+                    <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
+                        <input class="outline-none w-full" type="email" name="email" 
+                            placeholder="Enter your email">
                     </div>
                 </div>
     
@@ -27,20 +36,27 @@
                             placeholder="fill in password">
                     </div>
                 </div>
+
+                <div class="mt-6">
+                    <label for="repeatpassword">Repeat password</label> <br>
+                    <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
+                        <input class="outline-none w-full" type="password" name="repeatpassword" 
+                            placeholder="Repeat password">
+                    </div>
+                </div>
     
                 <div class="flex flex-col sm:flex-row sm:justify-between mt-6">
                     <div>
                         <input type="checkbox" name="remember" id="">
                         <label for="remember">Remember this device</label>
                     </div>
-                    <a href="#" class="text-forgotPas mt-2 sm:mt-0">Forgot password?</a>
                 </div>
                
                
-                <button type='submit' class="w-full mt-6 text-white py-3 bg-greenButton font-bold">LOG IN</button>
+                <button type='submit' class="w-full mt-6 text-white py-3 bg-greenButton font-bold">SIGN UP</button>
             
                 <div class="mt-6">
-                    <p class="text-grey text-sm sm:text-lg text-center">Don't have an account? <span class="font-bold">Sign up for free</span> </p>
+                    <p class="text-grey text-sm sm:text-lg text-center">Already have an account? <span class="font-bold">Log in</span> </p>
                 </div>
     
             </form>
