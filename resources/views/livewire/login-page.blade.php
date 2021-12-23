@@ -10,7 +10,7 @@
                 <p class="text-sm sm:text-xl text-grey mt-4">Welcome back! please enter your details</p>
             </div>
     
-            <form method='POST' action='/' class="md:px-4">
+            <form method='POST' action='/' class="md:px-4 lg:px-0">
                 @csrf
                 <div class="mt-6">
                     <label for="username">Username</label> <br>
@@ -40,7 +40,7 @@
                 <button type='submit' class="w-full mt-6 text-white py-3 bg-greenButton font-bold">LOG IN</button>
             
                 <div class="mt-6">
-                    <p class="text-grey text-sm sm:text-lg text-center">Don't have an account? <span class="font-bold">Sign up for free</span> </p>
+                    <p class="text-grey text-sm sm:text-lg text-center">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Sign up for free</a> </p>
                 </div>
     
             </form>

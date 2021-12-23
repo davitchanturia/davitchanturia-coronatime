@@ -10,44 +10,54 @@
                 <p class="text-sm sm:text-xl text-grey mt-4">Please enter required info to sign up</p>
             </div>
     
-            <form method='POST' action='/' class="md:px-4">
+            <form wire:submit.prevent="registerUser" method='POST' class="md:px-4 lg:px-0">
                 @csrf
                 <div class="mt-6">
                     <label for="username">Username</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
-                        <input class="outline-none w-full" type="text" name="username" 
+                        <input wire:model="username" class="outline-none w-full" 
+                            type="text" name="username" 
                             placeholder="Enter unique username">
                     </div>
                     <p class="text-grey text-sm mt-1">Username should be unique, min 3 symbols</p>
+                    @error('username') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
+
                 </div>
 
                 <div class="mt-6">
                     <label for="email">Email</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
-                        <input class="outline-none w-full" type="email" name="email" 
+                        <input wire:model="email" class="outline-none w-full"
+                            type="email" name="email" 
                             placeholder="Enter your email">
                     </div>
+                    @error('email') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
     
                 <div class="mt-6">
                     <label for="password">Password</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
-                        <input class="outline-none w-full" type="password" name="password" 
+                        <input wire:model="password" class="outline-none w-full" 
+                            type="password" name="password" 
                             placeholder="fill in password">
                     </div>
-                </div>
+                    @error('password') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
+                </div> 
+
 
                 <div class="mt-6">
-                    <label for="repeatpassword">Repeat password</label> <br>
+                    <label for="password_confirmation">Repeat password</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
-                        <input class="outline-none w-full" type="password" name="repeatpassword" 
+                        <input wire:model="password_confirmation" class="outline-none w-full" 
+                            type="password" name="password_confirmation" 
                             placeholder="Repeat password">
                     </div>
+                    @error('repeatpassword') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
-    
+
                 <div class="flex flex-col sm:flex-row sm:justify-between mt-6">
                     <div>
-                        <input type="checkbox" name="remember" id="">
+                        <input wire:model="remember" type="checkbox" name="remember" id="">
                         <label for="remember">Remember this device</label>
                     </div>
                 </div>
@@ -56,7 +66,7 @@
                 <button type='submit' class="w-full mt-6 text-white py-3 bg-greenButton font-bold">SIGN UP</button>
             
                 <div class="mt-6">
-                    <p class="text-grey text-sm sm:text-lg text-center">Already have an account? <span class="font-bold">Log in</span> </p>
+                    <p class="text-grey text-sm sm:text-lg text-center">Already have an account? <a href="{{ route('login') }}" class="font-bold">Log in</a> </p>
                 </div>
     
             </form>

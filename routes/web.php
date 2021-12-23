@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [viewController::class, 'index'])->name('home');
+Route::get('/', [viewController::class, 'index'])->name('home')->middleware('auth');
 
-Route::get('/login', [loginController::class, 'index'])->name('login');
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
+Route::group(['middleware' => 'guest'], function () {
+	Route::get('/login', [loginController::class, 'index'])->name('login');
+	Route::get('/register', [RegisterController::class, 'index'])->name('register');
+	Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
+});
