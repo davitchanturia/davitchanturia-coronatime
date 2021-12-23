@@ -6,6 +6,6 @@ class RegisterController extends Controller
 {
 	public function index()
 	{
-		return view('register');
+		return view('forms.register');
 	}
 }
