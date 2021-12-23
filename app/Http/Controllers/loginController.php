@@ -8,4 +8,11 @@ class loginController extends Controller
 	{
 		return view('forms.login');
 	}
+
+	public function destroy()
+	{
+		auth()->logout();
+
+		return redirect(route('login'));
+	}
 }

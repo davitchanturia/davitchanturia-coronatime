@@ -10,22 +10,24 @@
                 <p class="text-sm sm:text-xl text-grey mt-4">Welcome back! please enter your details</p>
             </div>
     
-            <form method='POST' action='/' class="md:px-4 lg:px-0">
+            <form wire:submit.prevent="loginUser" method='POST' class="md:px-4 lg:px-0">
                 @csrf
                 <div class="mt-6">
                     <label for="username">Username</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
-                        <input class="outline-none w-full" type="text" name="username" 
+                        <input wire:model="username" class="outline-none w-full" type="text" name="username" 
                             placeholder="Enter unique username or email">
                     </div>
+                    @error('username') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
     
                 <div class="mt-6">
                     <label for="password">Password</label> <br>
                     <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
-                        <input class="outline-none w-full" type="password" name="password" 
+                        <input wire:model="password" class="outline-none w-full" type="password" name="password" 
                             placeholder="fill in password">
                     </div>
+                    @error('password') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
     
                 <div class="flex flex-col sm:flex-row sm:justify-between mt-6">

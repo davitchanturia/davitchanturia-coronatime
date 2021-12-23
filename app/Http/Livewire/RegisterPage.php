@@ -18,9 +18,9 @@ class RegisterPage extends Component
 	public $remember;
 
 	protected $rules = [
-		'username'       => 'required|min:4',
-		'email'          => 'required|email',
-		'password'       => 'required|min:6|confirmed',
+		'username'              => 'required|min:4',
+		'email'                 => 'required|email',
+		'password'              => 'required|min:6|confirmed',
 	];
 
 	public function updated($property)

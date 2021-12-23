@@ -23,7 +23,10 @@
                                         User
                                     </div>
                                     <div class="px-3">
-                                        Log Out
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit">Log Out</button> 
+                                        </form>
                                     </div>
                                 </div>
                               
