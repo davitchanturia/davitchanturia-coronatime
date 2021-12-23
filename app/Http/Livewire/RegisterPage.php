@@ -20,7 +20,8 @@ class RegisterPage extends Component
 	protected $rules = [
 		'username'              => 'required|min:4',
 		'email'                 => 'required|email',
-		'password'              => 'required|min:6|confirmed',
+		'password'              => 'min:6|required',
+		'password_confirmation' => 'min:6|required_with:password|same:password',
 	];
 
 	public function updated($property)

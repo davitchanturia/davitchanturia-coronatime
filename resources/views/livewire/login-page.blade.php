@@ -29,6 +29,11 @@
                     </div>
                     @error('password') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
+
+                <div>
+                    <input name="notFound" type="hidden">
+                    @error('notFound') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
+                </div>
     
                 <div class="flex flex-col sm:flex-row sm:justify-between mt-6">
                     <div>

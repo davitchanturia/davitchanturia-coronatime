@@ -52,7 +52,7 @@
                             type="password" name="password_confirmation" 
                             placeholder="Repeat password">
                     </div>
-                    @error('repeatpassword') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
+                    @error('password_confirmation') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="flex flex-col sm:flex-row sm:justify-between mt-6">
