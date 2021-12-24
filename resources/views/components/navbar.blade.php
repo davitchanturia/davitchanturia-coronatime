@@ -6,26 +6,21 @@
                     <a href="#">
                         <img src="{{ asset('img/logo.png') }}" alt="">
                     </a>
-            
+
                     <div class="flex items-center mt-2 md:mt-0">
                         <ul class="flex text-sm text-headText">
                             <li>
-                                <button class="flex justify-center items-center">
-                                    English
-                                    <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
+                                <x-language-change />
                             </li>
                             <li class="ml-4">
                                 <div class="flex">
                                     <div class="border-r-2 border-gray-100 px-3 font-bold">
-                                        User
+                                        {{ auth()->user()->username }}
                                     </div>
                                     <div class="px-3">
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
-                                            <button type="submit">Log Out</button> 
+                                            <button type="submit">{{__('text.logout')}}</button> 
                                         </form>
                                     </div>
                                 </div>
