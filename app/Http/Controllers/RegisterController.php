@@ -8,4 +8,9 @@ class RegisterController extends Controller
 	{
 		return view('forms.register');
 	}
+
+	public function show()
+	{
+		return view('forms.send-email');
+	}
 }

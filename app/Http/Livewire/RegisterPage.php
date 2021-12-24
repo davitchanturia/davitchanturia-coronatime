@@ -39,9 +39,9 @@ class RegisterPage extends Component
 			'password' => $this->password,
 		]);
 
-		auth()->login($user);
+		// auth()->login($user);
 
-		return redirect(route('home'));
+		return redirect(route('send.email'));
 	}
 
 	public function render()

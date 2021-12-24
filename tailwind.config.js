@@ -22,6 +22,8 @@ module.exports = {
         grey: '#808189',
         forgotPas: '#2029F3',
         greenButton: '#0FBA68',
+        greenIconBack: '#c1efc8',
+        greenIcon: '#16c251',
       }
     },
   },

@@ -26,4 +26,5 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/login', [loginController::class, 'index'])->name('login');
 	Route::get('/register', [RegisterController::class, 'index'])->name('register');
 	Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
+	Route::get('/sendemail', [RegisterController::class, 'show'])->name('send.email');
 });
