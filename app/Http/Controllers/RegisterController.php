@@ -12,6 +12,7 @@ class RegisterController extends Controller
 	{
 		if (array_key_exists($lang, Config::get('app.available_locales')))
 		{
+			App::setLocale($lang);
 			Session::put('applocale', $lang);
 		}
 
