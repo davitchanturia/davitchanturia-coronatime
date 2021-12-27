@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\App;
 
 class RegisterPage extends Component
 {
@@ -41,7 +42,7 @@ class RegisterPage extends Component
 
 		// auth()->login($user);
 
-		return redirect(route('send.email'));
+		return redirect(route('send.email', [App::getLocale()]));
 	}
 
 	public function render()

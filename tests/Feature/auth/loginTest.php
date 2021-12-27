@@ -2,10 +2,11 @@
 
 namespace Tests\Feature\auth;
 
-use App\Http\Livewire\LoginPage;
 use Tests\TestCase;
 use App\Models\User;
 use Livewire\Livewire;
+use App\Http\Livewire\LoginPage;
+use Illuminate\Support\Facades\App;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class loginTest extends TestCase
@@ -14,7 +15,7 @@ class loginTest extends TestCase
 
 	public function test_login_renders_correctly()
 	{
-		$response = $this->get(route('login'));
+		$response = $this->get(route('login', ['lang' => App::getLocale()]));
 
 		$response->assertStatus(200);
 	}
@@ -30,7 +31,7 @@ class loginTest extends TestCase
 			->set('username', 'gela')
 			->set('password', 'gela123')
 			->call('loginUser')
-			->assertRedirect(route('home'));
+			->assertRedirect(route('home', ['lang' => App::getLocale()]));
 
 		$this->assertAuthenticated();
 	}

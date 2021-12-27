@@ -23,10 +23,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'guest'], function () {
-	Route::get('/login', [loginController::class, 'index'])->name('login');
-	Route::get('/register', [RegisterController::class, 'index'])->name('register');
+	Route::get('/{lang}/login', [loginController::class, 'index'])->name('login');
+	Route::get('/{lang}/register', [RegisterController::class, 'index'])->name('register');
 	Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
-	Route::get('/sendemail', [RegisterController::class, 'show'])->name('send.email');
 });
+Route::get('/{lang}/sendemail', [RegisterController::class, 'show'])->name('send.email');
 
 // Route::get('/lang/{locale}', [viewController::class, 'language'])->name('change.language');

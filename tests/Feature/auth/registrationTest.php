@@ -2,10 +2,11 @@
 
 namespace Tests\Feature\auth;
 
-use App\Http\Livewire\RegisterPage;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Livewire;
 use Tests\TestCase;
+use Livewire\Livewire;
+use App\Http\Livewire\RegisterPage;
+use Illuminate\Support\Facades\App;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class registrationTest extends TestCase
 {
@@ -13,7 +14,7 @@ class registrationTest extends TestCase
 
 	public function test_register_renders_correctly()
 	{
-		$response = $this->get(route('register'));
+		$response = $this->get(route('register', ['lang' => App::getLocale()]));
 
 		$response->assertStatus(200);
 	}
@@ -26,7 +27,7 @@ class registrationTest extends TestCase
 			->set('password', 'password')
 			->set('password_confirmation', 'password')
 			->call('registerUser')
-			->assertRedirect(route('home'));
+			->assertRedirect(route('send.email', ['lang' => App::getLocale()]));
 	}
 
 	public function test_validation_works_for_registration()

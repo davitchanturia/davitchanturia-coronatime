@@ -15,6 +15,6 @@ class viewController extends Controller
 		}
 
 		// return redirect()->route('home', $lang);
-		return view('home');
+		return view('home', [$lang]);
 	}
 }

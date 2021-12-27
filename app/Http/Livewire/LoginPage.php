@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
@@ -32,7 +33,7 @@ class LoginPage extends Component
 		{
 			session()->regenerate();
 
-			return redirect(route('home'));
+			return redirect(route('home', ['lang' => App::getLocale()]));
 		}
 		else
 		{

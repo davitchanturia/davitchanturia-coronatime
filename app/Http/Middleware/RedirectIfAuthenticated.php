@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
@@ -25,7 +26,7 @@ class RedirectIfAuthenticated
 		{
 			if (Auth::guard($guard)->check())
 			{
-				return redirect()->route('home');
+				return redirect()->route('home', ['lang' => App::getLocale()]);
 			}
 		}
 
