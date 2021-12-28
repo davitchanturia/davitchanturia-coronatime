@@ -4,7 +4,11 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use App\Jobs\VerifyUser;
+use Illuminate\Support\Str;
+use App\Mail\VerificationEmail;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterPage extends Component
 {
@@ -37,10 +41,16 @@ class RegisterPage extends Component
 		$user = User::create([
 			'username' => $this->username,
 			'email'    => $this->email,
+			'token'    => Str::random(64),
 			'password' => $this->password,
 		]);
 
 		// auth()->login($user);
+
+		//send email
+		// VerifyUser::dispatch($email);
+		Mail::to($user->email)
+			->queue(new VerificationEmail($user));
 
 		return redirect(route('send.email', [App::getLocale()]));
 	}

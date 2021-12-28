@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/en');
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/{lang}', [viewController::class, 'index'])->name('home');
 	Route::post('/logout', [loginController::class, 'destroy'])->name('logout');
@@ -28,5 +30,3 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
 });
 Route::get('/{lang}/sendemail', [RegisterController::class, 'show'])->name('send.email');
-
-// Route::get('/lang/{locale}', [viewController::class, 'language'])->name('change.language');
