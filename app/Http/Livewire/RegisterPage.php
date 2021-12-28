@@ -39,16 +39,16 @@ class RegisterPage extends Component
 		$this->validate();
 
 		$user = User::create([
-			'username' => $this->username,
-			'email'    => $this->email,
-			'token'    => Str::random(64),
-			'password' => $this->password,
+			'username'                          => $this->username,
+			'email'                             => $this->email,
+			'password'                          => $this->password,
+			'email_verification_token'          => Str::random(64),
 		]);
 
 		// auth()->login($user);
 
 		//send email
-		// VerifyUser::dispatch($email);
+		// VerifyUser::dispatch($user);
 		Mail::to($user->email)
 			->queue(new VerificationEmail($user));
 

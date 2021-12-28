@@ -14,16 +14,16 @@ class VerifyUser implements ShouldQueue
 {
 	use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-	public $email;
+	public $user;
 
 	/**
 	 * Create a new job instance.
 	 *
 	 * @return void
 	 */
-	public function __construct($email)
+	public function __construct($user)
 	{
-		$this->email = $email;
+		$this->user = $user;
 	}
 
 	/**
@@ -33,7 +33,7 @@ class VerifyUser implements ShouldQueue
 	 */
 	public function handle()
 	{
-		Mail::to($this->email)
-			->queue(new VerificationEmail($this->email));
+		Mail::to($this->user->email)
+			->queue(new VerificationEmail($this->user));
 	}
 }

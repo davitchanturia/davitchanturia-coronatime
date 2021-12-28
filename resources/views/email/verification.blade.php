@@ -9,7 +9,6 @@
 <body>
 
     <h1>hello {{$user->username}}</h1>
-    <p>clicke here</p>
-    <a href="{{$user->token}}"></a>
+    <a href="{{ route('verify.email', $user->email_verification_token) }}">verify email</a>
 </body>
 </html>

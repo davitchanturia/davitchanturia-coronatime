@@ -30,3 +30,7 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
 });
 Route::get('/{lang}/sendemail', [RegisterController::class, 'show'])->name('send.email');
+
+// Route::get('/verify/{token}', RegisterController::class, 'verify')->name('verify.email');
+
+Route::get('/verify/{token}', [RegisterController::class, 'verify'])->name('verify.email');
