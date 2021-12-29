@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
-use App\Jobs\VerifyUser;
 use Illuminate\Support\Str;
 use App\Mail\VerificationEmail;
 use Illuminate\Support\Facades\App;
@@ -45,10 +44,7 @@ class RegisterPage extends Component
 			'email_verification_token'          => Str::random(64),
 		]);
 
-		// auth()->login($user);
-
 		//send email
-		// VerifyUser::dispatch($user);
 		Mail::to($user->email)
 			->queue(new VerificationEmail($user));
 
