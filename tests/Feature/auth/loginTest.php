@@ -50,8 +50,10 @@ class loginTest extends TestCase
 
 	public function test_logout_form_works()
 	{
-		$this->post(route('logout'));
+		$user = User::factory()->create();
 
-		$this->assertGuest();
+		$response = $this->actingAs($user)->post(route('logout'));
+
+		$response->assertRedirect(route('login', App::getLocale()));
 	}
 }

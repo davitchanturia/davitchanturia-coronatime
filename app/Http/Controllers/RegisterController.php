@@ -43,4 +43,9 @@ class RegisterController extends Controller
 
 		return redirect(route('login', [App::getLocale()]));
 	}
+
+	public function verifyShow()
+	{
+		return view('forms.login');
+	}
 }

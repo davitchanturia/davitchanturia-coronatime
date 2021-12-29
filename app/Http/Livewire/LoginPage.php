@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -31,9 +32,19 @@ class LoginPage extends Component
 
 		if (Auth::attempt($credentials))
 		{
-			session()->regenerate();
+			$username = array_shift($credentials);
+			$verifyed = User::where('username', $username)->first();
 
-			return redirect(route('home', ['lang' => App::getLocale()]));
+			if ($verifyed->email_verified_at)
+			{
+				session()->regenerate();
+
+				return redirect(route('home', App::getLocale()));
+			}
+			else
+			{
+				return redirect(route('verification.notice'));
+			}
 		}
 		else
 		{

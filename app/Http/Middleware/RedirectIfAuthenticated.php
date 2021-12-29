@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
 		{
 			if (Auth::guard($guard)->check())
 			{
-				return redirect()->route('home', ['lang' => App::getLocale()]);
+				return redirect()->route('home', App::getLocale());
 			}
 		}
 

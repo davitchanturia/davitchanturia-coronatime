@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\viewController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\viewController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/en');
+
+Route::get('/verify/view', [RegisterController::class, 'verifyShow'])->name('verification.notice');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/{lang}', [viewController::class, 'index'])->name('home');
