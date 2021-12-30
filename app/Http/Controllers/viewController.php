@@ -16,7 +16,6 @@ class viewController extends Controller
 			Session::put('applocale', $lang);
 		}
 
-		// return redirect()->route('home', $lang);
 		return view('home', [$lang]);
 	}
 }

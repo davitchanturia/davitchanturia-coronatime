@@ -36,6 +36,21 @@ class loginTest extends TestCase
 		$this->assertAuthenticated();
 	}
 
+	public function test_unveryfied_user_redirects_on_the_message_route()
+	{
+		$user = User::factory()->create([
+			'username'          => 'gela',
+			'password'          => 'gela123',
+			'email_verified_at' => null,
+		]);
+
+		Livewire::test(LoginPage::class)
+			->set('username', 'gela')
+			->set('password', 'gela123')
+			->call('loginUser')
+			->assertRedirect(route('send.email', App::getLocale()));
+	}
+
 	public function test_validation_works_for_login()
 	{
 		$user = User::factory()->create();
@@ -51,6 +66,7 @@ class loginTest extends TestCase
 	public function test_logout_form_works()
 	{
 		$user = User::factory()->create();
+		$this->be($user);
 
 		$response = $this->actingAs($user)->post(route('logout'));
 

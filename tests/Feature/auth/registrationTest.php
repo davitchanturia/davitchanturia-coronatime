@@ -3,6 +3,7 @@
 namespace Tests\Feature\auth;
 
 use Tests\TestCase;
+use App\Models\User;
 use Livewire\Livewire;
 use App\Http\Livewire\RegisterPage;
 use Illuminate\Support\Facades\App;
@@ -55,5 +56,15 @@ class registrationTest extends TestCase
 			->set('password_confirmation', 'password2')
 			->call('registerUser')
 			->assertSee('The password confirmation and password must match.');
+	}
+
+	public function test_already_registered_user_can_visit_home_page()
+	{
+		$user = User::factory()->create();
+
+		$response = $this->actingAs($user)
+			->get(route('home', ['lang' => App::getLocale()]));
+
+		$response->assertStatus(200);
 	}
 }
