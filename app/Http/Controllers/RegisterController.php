@@ -41,11 +41,12 @@ class RegisterController extends Controller
 			$user->save();
 		}
 
-		return redirect(route('login', [App::getLocale()]));
+		return view('forms.verifyed-email');
 	}
 
-	public function verifyShow()
-	{
-		return view('forms.login');
-	}
+	// public function verifyShow()
+	// {
+	// 	// return redirect(route('login', App::getLocale()));
+	// 	return view('forms.login');
+	// }
 }

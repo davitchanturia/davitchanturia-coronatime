@@ -43,7 +43,7 @@ class LoginPage extends Component
 			}
 			else
 			{
-				return redirect(route('verification.notice'));
+				return redirect(route('send.email', App::getLocale()));
 			}
 		}
 		else

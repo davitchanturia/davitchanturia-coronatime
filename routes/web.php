@@ -16,10 +16,9 @@ use App\Http\Controllers\ResetPasswordController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/verify/view', [RegisterController::class, 'verifyShow'])->name('verification.notice');
 
 Route::redirect('/', '/en');
-
-Route::get('/verify/view', [RegisterController::class, 'verifyShow'])->name('verification.notice');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/{lang}', [viewController::class, 'index'])->name('home');

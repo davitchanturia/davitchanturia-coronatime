@@ -463,11 +463,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-36 {
   margin-top: 9rem;
 }
-.mt-14 {
-  margin-top: 3.5rem;
-}
 .mt-6 {
   margin-top: 1.5rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
 }
 .mt-1 {
   margin-top: 0.25rem;
@@ -502,6 +502,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-16 {
   height: 4rem;
 }
+.h-4 {
+  height: 1rem;
+}
 .h-14 {
   height: 3.5rem;
 }
@@ -510,9 +513,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-full {
   height: 100%;
-}
-.h-4 {
-  height: 1rem;
 }
 .h-screen {
   height: 100vh;
@@ -535,20 +535,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-auto {
   width: auto;
 }
-.w-14 {
-  width: 3.5rem;
-}
-.w-6 {
-  width: 1.5rem;
-}
 .w-4 {
   width: 1rem;
 }
 .w-24 {
   width: 6rem;
 }
+.w-14 {
+  width: 3.5rem;
+}
+.w-6 {
+  width: 1.5rem;
+}
+.w-80 {
+  width: 20rem;
+}
 .w-99 {
   width: 24.75rem;
+}
+.w-px {
+  width: 1px;
 }
 .min-w-full {
   min-width: 100%;
@@ -657,13 +663,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(193 239 200 / var(--tw-bg-opacity));
 }
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 .bg-greenButton {
   --tw-bg-opacity: 1;
   background-color: rgb(15 186 104 / var(--tw-bg-opacity));
+}
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 .bg-newCases {
   --tw-bg-opacity: 1;
@@ -708,6 +714,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -715,10 +725,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 .pb-4 {
   padding-bottom: 1rem;
@@ -821,6 +827,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(22 194 81 / var(--tw-text-opacity));
 }
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 .text-darkBlack {
   --tw-text-opacity: 1;
   color: rgb(1 4 20 / var(--tw-text-opacity));
@@ -836,10 +846,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-forgotPas {
   --tw-text-opacity: 1;
   color: rgb(32 41 243 / var(--tw-text-opacity));
-}
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .text-newCasesNum {
   --tw-text-opacity: 1;
