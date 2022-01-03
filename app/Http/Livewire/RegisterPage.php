@@ -22,10 +22,10 @@ class RegisterPage extends Component
 	public $remember;
 
 	protected $rules = [
-		'username'              => 'required|min:4',
-		'email'                 => 'required|email',
-		'password'              => 'min:6|required',
-		'password_confirmation' => 'min:6|required_with:password|same:password',
+		'username'              => 'required|min:3|unique:users',
+		'email'                 => 'required|email|unique:users',
+		'password'              => 'min:3|required',
+		'password_confirmation' => 'required_with:password|same:password',
 	];
 
 	public function updated($property)

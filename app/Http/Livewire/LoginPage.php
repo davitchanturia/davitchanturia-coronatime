@@ -17,8 +17,8 @@ class LoginPage extends Component
 	public $remember;
 
 	protected $rules = [
-		'username'              => 'required|min:4',
-		'password'              => 'required|min:6',
+		'username'              => 'required|min:3|exists:users',
+		'password'              => 'required',
 	];
 
 	public function updated($property)
