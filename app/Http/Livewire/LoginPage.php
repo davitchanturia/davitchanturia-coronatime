@@ -30,14 +30,14 @@ class LoginPage extends Component
 	{
 		$credentials = $this->validate();
 
-		if (Auth::attempt($credentials))
-		{
-			$username = array_shift($credentials);
-			$verifyed = User::where('username', $username)->first();
+		$username = array_shift($credentials);
+		$verifyed = User::where('username', $username)->first();
 
+		if ($verifyed)
+		{
 			if ($verifyed->email_verified_at)
 			{
-				session()->regenerate();
+				Auth::login($verifyed);
 
 				return redirect(route('home', App::getLocale()));
 			}
