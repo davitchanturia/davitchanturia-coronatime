@@ -40,7 +40,7 @@
                         <input type="checkbox" name="remember" id="">
                         <label for="remember">{{__('login.remember')}}</label>
                     </div>
-                    <a href="#" class="text-forgotPas mt-2 sm:mt-0">{{__('login.forgotpassword')}}</a>
+                    <a href="{{ route('reset.password', App::getLocale()) }}" class="text-forgotPas mt-2 sm:mt-0">{{__('login.forgotpassword')}}</a>
                 </div>
                
                

@@ -30,16 +30,23 @@ class LoginPage extends Component
 	{
 		$credentials = $this->validate();
 
-		$username = array_shift($credentials);
+		$username = $credentials['username'];
 		$verifyed = User::where('username', $username)->first();
 
 		if ($verifyed)
 		{
 			if ($verifyed->email_verified_at)
 			{
-				Auth::login($verifyed);
-
-				return redirect(route('home', App::getLocale()));
+				if (Auth::attempt($credentials))
+				{
+					return redirect(route('home', App::getLocale()));
+				}
+				else
+				{
+					throw ValidationException::withMessages([
+						'notFound' => 'your provided credentials could not be found',
+					]);
+				}
 			}
 			else
 			{

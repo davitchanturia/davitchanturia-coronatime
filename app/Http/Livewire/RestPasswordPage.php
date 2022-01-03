@@ -6,8 +6,8 @@ use Livewire\Component;
 
 class RestPasswordPage extends Component
 {
-    public function render()
-    {
-        return view('livewire.rest-password-page');
-    }
+	public function render()
+	{
+		return view('livewire.rest-password-page');
+	}
 }

@@ -28,7 +28,11 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'guest'], function () {
 	Route::get('/{lang}/login', [loginController::class, 'index'])->name('login');
 	Route::get('/{lang}/register', [RegisterController::class, 'index'])->name('register');
-	Route::get('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
+	
+	Route::get('/{lang}/resetpassword', [ResetPasswordController::class, 'index'])->name('reset.password');
+	Route::post('/{lang}/resetpassword', [ResetPasswordController::class, 'send'])->name('send.reset.password');
+	Route::get('/reset-password/{token}', [ResetPasswordController::class, 'verify'])->name('password.reset');
+    Route::put('/{lang}/updatepassword', [ResetPasswordController::class, 'update'])->name('update.password');
 });
 Route::get('/{lang}/sendemail', [RegisterController::class, 'show'])->name('send.email');
 
