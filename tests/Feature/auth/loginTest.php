@@ -60,7 +60,7 @@ class loginTest extends TestCase
 			->set('username', 'something')
 			->set('password', $user->password)
 			->call('loginUser')
-			->assertSee('your provided credentials could not be found');
+			->assertSee('The selected username is invalid.');
 	}
 
 	public function test_logout_form_works()

@@ -27,7 +27,7 @@ class ResetPasswordController extends Controller
 
 		if (!$user)
 		{
-			return back()->with('failed', 'Failed! email is not registered.');
+			return redirect(route('home', App::getLocale()))->with('failed', 'Failed! email is not registered.');
 		}
 
 		$token = Str::random(60);
@@ -36,13 +36,18 @@ class ResetPasswordController extends Controller
 		$user['is_verified'] = 0;
 		$user->save();
 
-		Mail::to($request->email)->send(new ResetPassword($user->name, $token));
+		Mail::to($request->email)
+			->queue(new ResetPassword($user->name, $token));
 
-		if (Mail::failures() != 0)
-		{
-			return view('forms.send-email');
-		}
-		return back()->with('failed', 'Failed! there is some issue with email provider');
+		return view('forms.send-email');
+		// if (Mail::failures() != 0 )
+		// {
+		// 	return view('forms.send-email');
+		// }
+		// else
+		// {
+		// 	return redirect(route('reset.password', App::getLocale()));
+		// }
 	}
 
 	public function verify($token)
@@ -53,7 +58,10 @@ class ResetPasswordController extends Controller
 			$email = $user->email;
 			return view('forms.recover-password', compact('email'));
 		}
-		return route('reset.password', App::getLocale());
+		else
+		{
+			return redirect(route('reset.password', App::getLocale()));
+		}
 	}
 
 	public function update(Request $request)
@@ -73,6 +81,6 @@ class ResetPasswordController extends Controller
 
 			return redirect()->route('login', App::getLocale());
 		}
-		return redirect()->route('forgot-password')->with('failed', 'Failed! something went wrong');
+		return redirect(route('password.reset', $user->token));
 	}
 }

@@ -34,12 +34,12 @@ class registrationTest extends TestCase
 	public function test_validation_works_for_registration()
 	{
 		Livewire::test(RegisterPage::class)
-			->set('username', 'dat')
+			->set('username', 'da')
 			->set('email', 'dato@test.ge')
 			->set('password', 'password')
 			->set('password_confirmation', 'password')
 			->call('registerUser')
-			->assertSee('The username must be at least 4 characters.');
+			->assertSee('The username must be at least 3 characters.');
 
 		Livewire::test(RegisterPage::class)
 			->set('username', 'dato')

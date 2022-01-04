@@ -34,13 +34,10 @@ class EmailVerificationTest extends TestCase
 		]);
 
 		Mail::fake();
-		Mail::send(new VerificationEmail($user));
 
-		Mail::assertSent(VerificationEmail::class, function (VerificationEmail $email) use ($user) {
-			return $email->subject === 'Email Verification';
-			return $email->from === 'hello@email.com';
-			return $email->markdown === 'email.verification';
-		});
+		Mail::to($user->email)->queue(new VerificationEmail($user));
+
+		Mail::assertQueued(VerificationEmail::class);
 	}
 
 	public function test_when_verification_email_is_send_user_gets_correct_route_with_token()
