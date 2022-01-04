@@ -37,7 +37,7 @@ class LoginPage extends Component
 		{
 			if ($verifyed->email_verified_at)
 			{
-				if (Auth::attempt($credentials))
+				if (Auth::attempt($credentials, $this->remember))
 				{
 					return redirect(route('home', App::getLocale()));
 				}

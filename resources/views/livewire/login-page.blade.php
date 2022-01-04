@@ -37,7 +37,7 @@
     
                 <div class="flex flex-col sm:flex-row sm:justify-between mt-6">
                     <div>
-                        <input type="checkbox" name="remember" id="">
+                        <input wire:model="remember" type="checkbox" name="remember" value="1">
                         <label for="remember">{{__('login.remember')}}</label>
                     </div>
                     <a href="{{ route('reset.password', App::getLocale()) }}" class="text-forgotPas mt-2 sm:mt-0">{{__('login.forgotpassword')}}</a>
