@@ -38,16 +38,42 @@ class generateApiData extends Command
 	 *
 	 * @return int
 	 */
+	public $countries = [];
+
 	public function handle()
 	{
 		$response = Http::get('https://devtest.ge/countries');
 
 		foreach ($response->json() as $element)
 		{
-			$encodedArray = json_encode($element['name']);
+			sleep(2);
 
+			$countryName = json_encode($element['name']);
+			$countryCode = json_encode($element['code']);
+
+			$stats = Http::post('https://devtest.ge/get-country-statistics', $element);
+
+			$country = [
+				'name'      => $countryName,
+				'code'      => $countryCode,
+				'confirmed' => $stats->json()['confirmed'],
+				'recovered' => $stats->json()['recovered'],
+				'critical'  => $stats->json()['critical'],
+				'deaths'    => $stats->json()['deaths'],
+			];
+
+			array_push($this->countries, $country);
+		}
+
+		foreach ($this->countries as $country)
+		{
 			Country::create([
-				'name' => $encodedArray,
+				'name'      => $country['name'],
+				'code'      => $country['code'],
+				'confirmed' => $country['confirmed'],
+				'recovered' => $country['recovered'],
+				'critical'  => $country['critical'],
+				'deaths'    => $country['deaths'],
 			]);
 		}
 
