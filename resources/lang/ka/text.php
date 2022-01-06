@@ -2,6 +2,7 @@
 
 return [
 	'Worldwidestatistics'  => 'საერთო სტატისტიკა',
+	'Countrystatistics'    => 'ქვეყნების სტატისტიკა',
 	'Worldwide'            => 'მსოფლიო',
 	'Bycountry'            => 'ქვეყანა',
 	'Newcases'             => 'ახალი შემთხვევა',
