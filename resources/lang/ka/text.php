@@ -5,6 +5,7 @@ return [
 	'Worldwide'            => 'მსოფლიო',
 	'Bycountry'            => 'ქვეყანა',
 	'Newcases'             => 'ახალი შემთხვევა',
+	'Critical'             => 'კრიტიკული',
 	'Recovered'            => 'გამოჯანმრთელებული',
 	'Death'                => 'გარდაცვლილი',
 	'logout'               => 'გამოსვლა',

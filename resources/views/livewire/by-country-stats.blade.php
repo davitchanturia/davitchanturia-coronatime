@@ -33,6 +33,10 @@
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
+                                    {{__('text.Critical')}}
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
                                     {{__('text.Death')}}
                                 </th>
                                 <th scope="col"
@@ -45,20 +49,25 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($countries as $country)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-darkBlack">
-                                    Albania
+                                    {{ $country->getTranslation('name', App::getlocale() )}}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
-                                    9,747,000
+                                    {{ $country->confirmed}}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
-                                    66,591
+                                    {{ $country->critical}}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
-                                    5,803,905
+                                    {{ $country->deaths}}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-darkBlack">
+                                    {{ $country->recovered}}
                                 </td>
                             </tr>
+                            @endforeach
 
                             <!-- More people... -->
                         </tbody>

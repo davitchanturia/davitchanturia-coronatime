@@ -5,6 +5,7 @@ return [
 	'Worldwide'            => 'Worldwide',
 	'Bycountry'            => 'By country',
 	'Newcases'             => 'New cases',
+	'Critical'             => 'Critical',
 	'Recovered'            => 'Recovered',
 	'Death'                => 'Death',
 	'logout'               => 'Log Out',
