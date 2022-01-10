@@ -4,7 +4,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg> --}}
 
-        <input type="search" placeholder="{{__('text.search')}}"
+        <input wire:model="search" type="search" placeholder="{{__('text.search')}}"
             class="w-full rounded-xl bg-white text-gray-400 px-4 py-2 pl-10 outline-none border-none placeholder-gray-200">
 
         <div class="absolute top-0 flex items-center h-full ml-1">
@@ -68,7 +68,7 @@
                                     {{ $country->recovered}}
                                 </td>
                             </tr>
-                            @endforeach 
+                            @endforeach
                                 <!-- More people... -->
                         </tbody>
                     </table>
