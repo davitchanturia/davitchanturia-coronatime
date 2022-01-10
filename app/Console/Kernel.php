@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
 	 */
 	protected function schedule(Schedule $schedule)
 	{
-		$schedule->command('create:generate-data')->everyMinute();
+		$schedule->command('create:generate-data')->everyTenMinutes();
 	}
 
 	/**
