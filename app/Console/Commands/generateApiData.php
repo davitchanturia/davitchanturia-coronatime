@@ -42,41 +42,62 @@ class generateApiData extends Command
 
 	public function handle()
 	{
-		$response = Http::get('https://devtest.ge/countries');
+		$names = Http::get('https://devtest.ge/countries');
 
-		foreach ($response->json() as $element)
+		if ($names->successful())
+		{
+			$this->execution($names);
+		}
+		else
+		{
+			$names = Http::retry(3, 100)->get('https://devtest.ge/countries');
+
+			$this->execution($names);
+		}
+
+		foreach ($this->countries as $country)
+		{
+			Country::updateOrCreate(
+				['code'      => $country['code']],
+				[
+					'name'      => [
+						'en' => $country['name']['en'],
+						'ka' => $country['name']['ka'],
+					],
+					'confirmed' => $country['confirmed'],
+					'recovered' => $country['recovered'],
+					'critical'  => $country['critical'],
+					'deaths'    => $country['deaths'],
+				]
+			);
+		}
+
+		$this->info('Data from api is migrated succesfully!');
+	}
+
+	private function save($element, $stats): array
+	{
+		return [
+			'name'      => $element['name'],
+			'code'      => $element['code'],
+			'confirmed' => $stats->json()['confirmed'],
+			'recovered' => $stats->json()['recovered'],
+			'critical'  => $stats->json()['critical'],
+			'deaths'    => $stats->json()['deaths'],
+		];
+	}
+
+	private function execution($names)
+	{
+		foreach ($names->json() as $element)
 		{
 			sleep(2);
 
 			$stats = Http::post('https://devtest.ge/get-country-statistics', $element);
 
-			$country = [
-				'name'      => $element['name'],
-				'code'      => $element['code'],
-				'confirmed' => $stats->json()['confirmed'],
-				'recovered' => $stats->json()['recovered'],
-				'critical'  => $stats->json()['critical'],
-				'deaths'    => $stats->json()['deaths'],
-			];
+			$country = $this->save($element, $stats);
 
 			array_push($this->countries, $country);
 		}
-
-		foreach ($this->countries as $country)
-		{
-			Country::create([
-				'name'      => [
-					'en' => $country['name']['en'],
-					'ka' => $country['name']['ka'],
-				],
-				'code'      => $country['code'],
-				'confirmed' => $country['confirmed'],
-				'recovered' => $country['recovered'],
-				'critical'  => $country['critical'],
-				'deaths'    => $country['deaths'],
-			]);
-		}
-
-		$this->info('Data from api is migrated succesfully!');
 	}
 }
