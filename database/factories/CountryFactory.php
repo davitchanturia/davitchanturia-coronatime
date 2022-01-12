@@ -14,7 +14,12 @@ class CountryFactory extends Factory
 	public function definition()
 	{
 		return [
-			'name' => 'saxeli',
+			'name'      => ['en' => 'name', 'ka' => 'saxeli'],
+			'code'      => 'GE',
+			'confirmed' => 1234,
+			'recovered' => 2323,
+			'critical'  => 1231,
+			'deaths'    => 1223,
 		];
 	}
 }

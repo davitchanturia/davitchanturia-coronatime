@@ -31,12 +31,26 @@ class ByCountryStats extends Component
 
 	public function up($column)
 	{
-		$this->countries = Country::all()->sortBy($column);
+		if ($this->search)
+		{
+			$this->countries = Country::where('name->' . App::getlocale(), 'like', $this->search . '%')->get()->sortBy($column);
+		}
+		else
+		{
+			$this->countries = Country::all()->sortBy($column);
+		}
 	}
 
 	public function down($column)
 	{
-		$this->countries = Country::all()->sortByDesc($column);
+		if ($this->search)
+		{
+			$this->countries = Country::where('name->' . App::getlocale(), 'like', $this->search . '%')->get()->sortByDesc($column);
+		}
+		else
+		{
+			$this->countries = Country::all()->sortByDesc($column);
+		}
 	}
 
 	public function render()
