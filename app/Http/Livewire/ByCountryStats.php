@@ -29,6 +29,16 @@ class ByCountryStats extends Component
 		}
 	}
 
+	public function up($column)
+	{
+		$this->countries = Country::all()->sortBy($column);
+	}
+
+	public function down($column)
+	{
+		$this->countries = Country::all()->sortByDesc($column);
+	}
+
 	public function render()
 	{
 		return view('livewire.by-country-stats');

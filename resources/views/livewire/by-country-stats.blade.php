@@ -25,23 +25,108 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
-                                    {{__('text.location')}}
+                                    <div class="flex items-center">
+                                        <h1 class="align-middle">
+                                            {{__('text.location')}}
+                                        </h1>
+                                        <div class="icons ml-2">
+                                            <button wire:click="up('name')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                </svg>
+                                            </button>
+                                            
+                                            <button wire:click="down('name')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
-                                    {{__('text.Newcases')}}
+                                    <div class="flex items-center">
+                                        <h1>
+                                            {{__('text.Newcases')}}
+                                        </h1>
+                                        <div class="icons ml-2">
+                                            <button wire:click="up('confirmed')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                </svg>
+                                            </button>
+                                            
+                                            <button wire:click="down('confirmed')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
-                                    {{__('text.Critical')}}
+                                    <div class="flex items-center">
+                                        <h1>
+                                            {{__('text.Critical')}}
+                                        </h1>
+                                        <div class="icons ml-2">
+                                            <button wire:click="up('critical')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                </svg>
+                                            </button>
+                                            
+                                            <button wire:click="down('critical')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
-                                    {{__('text.Death')}}
+                                    <div class="flex items-center">
+                                        <h1>
+                                            {{__('text.Death')}}
+                                        </h1>
+                                        <div class="icons ml-2">
+                                            <button wire:click="up('death')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                </svg>
+                                            </button>
+                                            
+                                            <button wire:click="down('death')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
-                                    {{__('text.Recovered')}}
+                                    <div class="flex items-center">
+                                        <h1>
+                                            {{__('text.Recovered')}}
+                                        </h1>
+                                        <div class="icons ml-2">
+                                            <button wire:click="up('recovered')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                </svg>
+                                            </button>
+                                            
+                                            <button wire:click="down('recovered')" class="block">
+                                                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
