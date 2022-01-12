@@ -70,10 +70,10 @@ return [
 
 	'available_locales' => [
 		'en' => [
-			'name'  => 'English',
+			'name'  => ['en' => 'English', 'ka' => 'ინგლისური'],
 		],
 		'ka' => [
-			'name'  => 'Georgian',
+			'name'  => ['en' => 'Georgian', 'ka' => 'ქართული'],
 		],
 	],
 
