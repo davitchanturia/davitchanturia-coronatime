@@ -93,13 +93,13 @@
                                             {{__('text.Death')}}
                                         </h1>
                                         <div class="icons ml-2">
-                                            <button wire:click="up('death')" class="block">
+                                            <button wire:click="up('deaths')" class="block">
                                                 <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
                                                 </svg>
                                             </button>
                                             
-                                            <button wire:click="down('death')" class="block">
+                                            <button wire:click="down('deaths')" class="block">
                                                 <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                                 </svg>
