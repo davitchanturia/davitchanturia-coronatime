@@ -14,6 +14,7 @@
         <div 
             x-cloak 
             x-show="show" 
+            @click.away="show = false"
             class="w-24 absolute -bottom-6 right-0 border border-gray-200 bg-gray-400">
             @foreach (Config::get('app.available_locales') as $lang => $language)
                 @if ($lang != App::getLocale())
