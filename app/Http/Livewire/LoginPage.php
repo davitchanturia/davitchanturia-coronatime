@@ -17,7 +17,7 @@ class LoginPage extends Component
 	public $remember;
 
 	protected $rules = [
-		'username'              => 'required|min:3|exists:users',
+		'username'              => 'required|min:3',
 		'password'              => 'required',
 	];
 
@@ -31,11 +31,11 @@ class LoginPage extends Component
 		$credentials = $this->validate();
 
 		$username = $credentials['username'];
-		$verifyed = User::where('username', $username)->first();
+		$ifExistsInDatabase = User::where('username', $username)->first();
 
-		if ($verifyed)
+		if ($ifExistsInDatabase)
 		{
-			if ($verifyed->email_verified_at)
+			if ($ifExistsInDatabase->email_verified_at)
 			{
 				if (Auth::attempt($credentials, $this->remember))
 				{
@@ -44,7 +44,7 @@ class LoginPage extends Component
 				else
 				{
 					throw ValidationException::withMessages([
-						'notFound' => 'your provided credentials could not be found',
+						'notFound' => 'your provided credentials is incorrect',
 					]);
 				}
 			}

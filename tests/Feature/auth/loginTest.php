@@ -36,6 +36,34 @@ class loginTest extends TestCase
 		$this->assertAuthenticated();
 	}
 
+	public function test_if_user_does_not_exists_message_appeares()
+	{
+		$user = User::factory()->create([
+			'username' => 'gela',
+			'password' => 'gela123',
+		]);
+
+		Livewire::test(LoginPage::class)
+			->set('username', 'gela')
+			->set('password', 'gela1234')
+			->call('loginUser')
+			->assertSee('your provided credentials is incorrect');
+	}
+
+	public function test_if_user_does_not_exists_after_login_message_appeares()
+	{
+		$user = User::factory()->create([
+			'username' => 'gela',
+			'password' => 'gela123',
+		]);
+
+		Livewire::test(LoginPage::class)
+			->set('username', 'buxutichi')
+			->set('password', 'password')
+			->call('loginUser')
+			->assertSee('your provided credentials could not be found');
+	}
+
 	public function test_unveryfied_user_redirects_on_the_message_route()
 	{
 		$user = User::factory()->create([
@@ -60,7 +88,7 @@ class loginTest extends TestCase
 			->set('username', 'something')
 			->set('password', $user->password)
 			->call('loginUser')
-			->assertSee('The selected username is invalid.');
+			->assertSee('your provided credentials could not be found');
 	}
 
 	public function test_logout_form_works()
