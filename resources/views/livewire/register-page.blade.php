@@ -1,6 +1,6 @@
 <div class="relative w-full">
     <div class="w-full xl:w-336 px-4 mx-auto">
-        <div class="w-full lg:w-96">
+        <div class="w-full md:w-137 md:mx-auto lg:w-96 lg:mx-0">
             <div class="pt-10">
                 <img src="{{ asset('img/logo.png') }}" alt="">
             </div>
@@ -10,7 +10,7 @@
                 <p class="text-sm sm:text-xl text-grey mt-4">{{__('register.filltheform')}}</p>
             </div>
     
-            <form wire:submit.prevent="registerUser" method='POST' class="md:px-4 lg:px-0">
+            <form wire:submit.prevent="registerUser" method='POST' class="sm:px-4 lg:px-0">
                 @csrf
                 <div class="mt-6">
                     <label for="username">{{__('register.username')}}</label> <br>

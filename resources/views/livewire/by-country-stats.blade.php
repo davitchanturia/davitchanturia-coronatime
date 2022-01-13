@@ -16,12 +16,12 @@
     </div>
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="flex flex-col mt-10 h-137">
+    {{-- <div class="flex flex-col mt-10 w-336">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                    <table class="min-w-full divide-y divide-gray-200 table-auto">
+                        <thead class="bg-gray-50 ">
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider">
@@ -128,13 +128,11 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
-                                </th>
+
                             </tr>
                         </thead>
                         
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-white divide-y divide-gray-200 block w-full h-137 overflow-y-scroll overflow-x-hidden">
                             @foreach ($countries as $country)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-darkBlack">
@@ -160,7 +158,135 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    
+    <div class="flex flex-col mt-10 ">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="text-left w-full">
+                        <thead class="bg-gray-50 flex w-full">
+                                <tr class="flex w-full">
+                                    <th class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider w-1/4">
+                                        <div class="flex items-center">
+                                            <h1>
+                                                {{__('text.location')}}
+                                            </h1>
+                                            <div class="icons ml-2">
+                                                <button wire:click="up('confirmed')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                    </svg>
+                                                </button>
+                                                
+                                                <button wire:click="down('confirmed')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th class="px-4 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider w-1/4">
+                                        <div class="flex items-center">
+                                            <h1>
+                                                {{__('text.Newcases')}}
+                                            </h1>
+                                            <div class="icons ml-2">
+                                                <button wire:click="up('confirmed')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                    </svg>
+                                                </button>
+                                                
+                                                <button wire:click="down('confirmed')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th class="px-4 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider w-1/4">
+                                        <div class="flex items-center">
+                                            <h1>
+                                                {{__('text.Critical')}}
+                                            </h1>
+                                            <div class="icons ml-2">
+                                                <button wire:click="up('critical')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                    </svg>
+                                                </button>
+                                                
+                                                <button wire:click="down('critical')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th class="px-3 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider w-1/4">
+                                        <div class="flex items-center">
+                                            <h1>
+                                                {{__('text.Death')}}
+                                            </h1>
+                                            <div class="icons ml-2">
+                                                <button wire:click="up('deaths')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                    </svg>
+                                                </button>
+                                                
+                                                <button wire:click="down('deaths')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th class="px-3 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider w-1/4">
+                                        <div class="flex items-center">
+                                            <h1>
+                                                {{__('text.Recovered')}}
+                                            </h1>
+                                            <div class="icons ml-2">
+                                                <button wire:click="up('recovered')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                                                    </svg>
+                                                </button>
+                                                
+                                                <button wire:click="down('recovered')" class="block">
+                                                    <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                        </thead>
+                         <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
+                        <tbody class="bg-white divide-y divide-gray-200 h-128 flex flex-col items-center justify-between overflow-y-scroll w-full" >
+                            @foreach ($countries as $country) 
+                            <tr class="flex w-full">
+                                <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm font-medium text-darkBlack">{{ $country->getTranslation('name', App::getlocale() )}}</td>
+                                <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->confirmed }}</td>
+                                <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->critical}}</td>
+                                <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->deaths}}</td>
+                                <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->recovered}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
 
+   
 </div>

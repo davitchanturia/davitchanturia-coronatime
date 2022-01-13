@@ -7,9 +7,9 @@ return [
 	'usernameplaceholder'               => 'შეიყვანეთ მომხმარებლის სახელი',
 	'password'                          => 'პაროლი',
 	'passwordplaceholder'               => 'შეიყვანეთ პაროლი',
-	'remember'                          => 'მოწყობილობის დამახსოვრება',
+	'remember'                          => 'დამახსოვრება',
 	'forgotpassword'                    => 'დაგავიწყდა პაროლი?',
 	'button'                            => 'შესვლა',
 	'alreadyhave'                       => 'არ გაქვთ ანგარიში?',
-	'regiser'                           => 'დარეგისტრირდით აქ უფასოდ',
+	'regiser'                           => 'დარეგისტრირდით აქ',
 ];
