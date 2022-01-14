@@ -61,47 +61,43 @@ class GenerateDataFromAPiTest extends TestCase
 			],
 		);
 
-		Http::fake(
-			[
-				'https://devtest.ge/get-country-statistics' => Http::response($fakeCountryStatistics),
-			],
-		);
+		$this->artisan('create:generate-data');
 
 		$countries = [];
-		// $this->artisan('create:generate-data');
 
 		$names = Http::get('https://devtest.ge/countries');
 
-		$x = 0;
-		foreach ($names->json() as $element)
-		{
-			// sleep(2);
+		$sequence = Http::sequence();
 
+		foreach ($fakeCountryStatistics as $value)
+		{
+			$sequence->push($value);
+		}
+
+		Http::fake(
+			[
+				'https://devtest.ge/get-country-statistics' => $sequence,
+			],
+		);
+
+		foreach ($names->json() as $key => $element)
+		{
 			$stats = Http::post('https://devtest.ge/get-country-statistics', $element);
 
-			// dd($stats->json());
 			$country = [
 				'name'      => $element['name'],
 				'code'      => $element['code'],
-				'confirmed' => $stats->json()[$x]['confirmed'],
-				'recovered' => $stats->json()[$x]['recovered'],
-				'critical'  => $stats->json()[$x]['critical'],
-				'deaths'    => $stats->json()[$x]['deaths'],
+				'confirmed' => $stats->json()['confirmed'],
+				'recovered' => $stats->json()['recovered'],
+				'critical'  => $stats->json()['critical'],
+				'deaths'    => $stats->json()['deaths'],
 			];
 
-			$x++;
 			array_push($countries, $country);
-			// dump($countries);
 		}
 
-		// dd('asdasd');
-		// dd($countries);
 		foreach ($countries as $el)
 		{
-			// dump($countries);
-			// dump('------------------');
-			// dump($el);
-			// dump('------------------');
 			$coun = Country::create(
 				[
 					'code'      => $el['code'],
@@ -115,11 +111,8 @@ class GenerateDataFromAPiTest extends TestCase
 					'deaths'    => $el['deaths'],
 				]
 			);
-			// dump($coun);
-			// dump('------------------');
 		}
 
-		// dd('end');
 		$this->assertDatabaseHas('countries', [
 			'code'      => 'GE',
 			'confirmed' => 233,
