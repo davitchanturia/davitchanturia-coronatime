@@ -14,10 +14,11 @@
     </div>
 </div>
 
+<center>
+    <a 
+        style="color:white; background:#0FBA68; font-weight:bold; border-radius:9px; border:none; padding:8px 68px; text-decoration:none;"
+        href="{{ route('verify.email', $user->email_verification_token) }}" class="btn">
+        VERIFY EMAIL
+    </a>
+</center>
 
-@component('mail::button', ['url' => "{{ route('verify.email', $user->email_verification_token) }}" ])
-VERIFY EMAIL
-@endcomponent
-
-
-{{-- @endcomponent --}}
