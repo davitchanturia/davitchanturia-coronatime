@@ -20,7 +20,7 @@ class loginTest extends TestCase
 		$response->assertStatus(200);
 	}
 
-	public function test_user_can_login()
+	public function test_user_can_login_with_username()
 	{
 		$user = User::factory()->create([
 			'username' => 'gela',
@@ -36,15 +36,48 @@ class loginTest extends TestCase
 		$this->assertAuthenticated();
 	}
 
+	public function test_user_can_login_with_email()
+	{
+		$user = User::factory()->create([
+			'email'    => 'gela@test.ge',
+			'username' => 'gela',
+			'password' => 'gela123',
+		]);
+
+		Livewire::test(LoginPage::class)
+			->set('username', 'gela@test.ge')
+			->set('password', 'gela123')
+			->call('loginUser')
+			->assertRedirect(route('home', ['lang' => App::getLocale()]));
+
+		$this->assertAuthenticated();
+	}
+
 	public function test_if_user_does_not_exists_message_appeares()
 	{
 		$user = User::factory()->create([
+			'email'    => 'gela@gela.ge',
 			'username' => 'gela',
 			'password' => 'gela123',
 		]);
 
 		Livewire::test(LoginPage::class)
 			->set('username', 'gela')
+			->set('password', 'gela1234')
+			->call('loginUser')
+			->assertSee('your provided credentials is incorrect');
+	}
+
+	public function test_if_user_does_not_exists_message_appeares_when_login_with_email()
+	{
+		$user = User::factory()->create([
+			'email'    => 'gela@gela.ge',
+			'username' => 'gela',
+			'password' => 'gela123',
+		]);
+
+		Livewire::test(LoginPage::class)
+			->set('username', 'gela@gela.ge')
 			->set('password', 'gela1234')
 			->call('loginUser')
 			->assertSee('your provided credentials is incorrect');
