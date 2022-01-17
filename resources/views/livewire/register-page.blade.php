@@ -1,9 +1,27 @@
 <div class="relative w-full">
     <div class="w-full xl:w-336 px-4 mx-auto">
         <div class="w-full md:w-137 md:mx-auto lg:w-96 lg:mx-0">
-            <div class="pt-10">
-                <img src="{{ asset('img/logo.png') }}" alt="">
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+
+                <div class="pt-10">
+                    <img src="{{ asset('img/logo.png') }}" alt="">
+                </div>
+
+                <div class="pt-10">
+                    <x-language-change>
+                        @foreach (Config::get('app.available_locales') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                <a 
+                                    href="{{ route('register', $lang) }}" @click="show = !show"
+                                    class="block text-center hover:bg-blue-600 hover:text-white cursor-pointer">
+                                    {{ $language['name'][App::getLocale()] }}
+                                </a>
+                            @endif
+                        @endforeach
+                    </x-language-change>
+                </div>
             </div>
+
 
             <div class="mt-14">
                 <h1 class="font-bold text-2xl">{{ __('register.welcome') }}</h1>

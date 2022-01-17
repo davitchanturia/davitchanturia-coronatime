@@ -10,7 +10,17 @@
                     <div class="flex items-center mt-2 md:mt-0">
                         <ul class="flex text-sm text-headText">
                             <li>
-                                <x-language-change />
+                                <x-language-change>
+                                    @foreach (Config::get('app.available_locales') as $lang => $language)
+                                        @if ($lang != App::getLocale())
+                                            <a 
+                                                href="{{ route('home', $lang) }}" @click="show = !show"
+                                                class="block text-center hover:bg-blue-600 hover:text-white cursor-pointer">
+                                                {{ $language['name'][App::getLocale()] }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                </x-language-change>
                             </li>
                             <li class="ml-4">
                                 <div class="flex">

@@ -1,3 +1,4 @@
+{{-- @props(['where']) --}}
 <div>
     <div x-data="{ show: false}"
          class="relative">
@@ -15,15 +16,8 @@
             x-cloak 
             x-show="show" 
             @click.away="show = false"
-            class="w-24 absolute -bottom-6 right-0 border border-gray-200 bg-gray-400">
-            @foreach (Config::get('app.available_locales') as $lang => $language)
-                @if ($lang != App::getLocale())
-                    <a 
-                    href="{{ route('home', $lang) }}"
-                        @click="show = !show"
-                        class="block text-center hover:bg-blue-600 hover:text-white cursor-pointer">{{ $language['name'][App::getLocale()] }}</a>
-                @endif
-            @endforeach
+            class="w-24 absolute -bottom-6 right-0 border border-gray-200 bg-gray-400 mt-1">
+            {{ $slot }}
         </div>
     </div>
 </div>
