@@ -22,20 +22,15 @@
                                     @endforeach
                                 </x-language-change>
                             </li>
-                            <li class="ml-4">
-                                <div class="flex">
-                                    <div class="border-r-2 border-gray-100 px-3 font-bold">
-                                        {{ auth()->user()->username }}
-                                    </div>
-                                    <div class="px-3">
-                                        <form action="{{ route('logout') }}" method="post">
-                                            @csrf
-                                            <button type="submit">{{__('text.logout')}}</button> 
-                                        </form>
-                                    </div>
-                                </div>
-                              
+
+                            <li class="ml-4 hidden sm:inline-block">
+                                <livewire:name-and-button />
                             </li>
+
+                            <li class="ml-4 inline-block sm:hidden">
+                                <x-burger-show />
+                            </li>
+
                         </ul>
                     </div>
                         
