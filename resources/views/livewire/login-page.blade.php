@@ -14,28 +14,76 @@
                 @csrf
                 <div class="mt-6">
                     <label for="username">{{__('login.username')}}</label> <br>
-                    <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
+                    <div class="w-full relative border rounded-md  inline-block py-2 px-3 mt-2
+                        @if($username)
+                            @error('username') border-red-700 
+                            @else border-green-500
+                            @enderror
+                        @else border-gray-200
+                        @endif"
+                        >
                         <input wire:model="username" class="outline-none w-full" type="text" name="username" 
-                            placeholder="{{__('login.usernameplaceholder')}}">
+                         placeholder="{{__('login.usernameplaceholder')}}">
+
+                        <div class="absolute right-3 top-3
+                            @if($username)
+                                @error('username') hidden 
+                                @else inline-block
+                                @enderror
+                            @else hidden
+                            @endif
+                        ">
+                            <img src="{{ asset('img/success.svg') }}" alt="">
+                        </div>
+                        
                     </div>
-                    @error('username') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
+                    <div class="h-1 mt-2">
+                        @error('username')
+                            <div class="flex items-center">
+                                <img src="{{ asset('img/warning.svg') }}" alt="">
+                                <span class="error text-xs text-red-700 ml-2">{{ $message }}</span>
+                            </div> 
+                        @enderror
+                    </div>
                 </div>
     
-                <div class="mt-6">
+                <div class="mt-5">
                     <label for="password">{{__('login.password')}}</label> <br>
-                    <div class="w-full border border-gray-200 inline-block py-2 px-3 mt-2">
+                    <div class="w-full relative border rounded-md border-gray-200 inline-block py-2 px-3 mt-2
+                    @if($password)
+                        @error('username') border-red-700 
+                        @else border-green-500
+                        @enderror
+                    @else border-gray-200
+                    @endif                        ">
                         <input wire:model="password" class="outline-none w-full" type="password" name="password" 
                             placeholder="{{__('login.passwordplaceholder')}}">
+                        <div class="absolute right-3 top-3
+                            @if($password)
+                                @error('password') hidden 
+                                @else inline-block
+                                @enderror
+                            @else hidden
+                            @endif
+                        ">
+                            <img src="{{ asset('img/success.svg') }}" alt="">
+                        </div>
                     </div>
-                    @error('password') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
-                </div>
+                    <div class="h-1 mt-2">
+                        @error('password')
+                            <div class="flex items-center">
+                                <img src="{{ asset('img/warning.svg') }}" alt="">
+                                <span class="error text-xs text-red-700 ml-2">{{ $message }}</span>
+                            </div> 
+                        @enderror    
+                    </div>
 
-                <div>
+                <div class="h-1 -mt-2">
                     <input name="notFound" type="hidden">
                     @error('notFound') <span class="error text-xs text-red-700">{{ $message }}</span> @enderror
                 </div>
     
-                <div class="flex flex-col sm:flex-row sm:justify-between mt-6">
+                <div class="flex flex-col sm:flex-row sm:justify-between mt-7">
                     <div>
                         <input wire:model="remember" type="checkbox" name="remember" value="1">
                         <label for="remember">{{__('login.remember')}}</label>
