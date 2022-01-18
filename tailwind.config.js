@@ -9,7 +9,7 @@ module.exports = {
       spacing: {
         99: '24.75rem',
         128: '33rem',
-        336: '84.375rem',
+        336: '76.575rem',
       },
       colors: {
         headText: '#010414',

@@ -12,9 +12,24 @@ class ByCountryStats extends Component
 
 	public $search;
 
+	public $quantity;
+
 	public function mount()
 	{
 		$this->countries = Country::all();
+		$this->quantity = $this->checkArray($this->countries);
+	}
+
+	public function checkArray($countries)
+	{
+		if (count($countries) != 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	public function updatedSearch()
@@ -29,6 +44,7 @@ class ByCountryStats extends Component
 		}
 	}
 
+	//sorting
 	public function up($column)
 	{
 		if ($this->search)

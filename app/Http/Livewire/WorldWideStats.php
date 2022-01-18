@@ -24,7 +24,14 @@ class WorldWideStats extends Component
 
 	public function withPoint($string)
 	{
-		return substr_replace($string, $this->point, -3, 0);
+		if (strlen($string) > 3)
+		{
+			return substr_replace($string, $this->point, -3, 0);
+		}
+		else
+		{
+			return $string;
+		}
 	}
 
 	public function render()

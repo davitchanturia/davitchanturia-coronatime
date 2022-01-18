@@ -4,7 +4,7 @@
         activeClasses: 'active',
         inactiveClasses: 'font-normal'
     }"
-    class="w-full md:w-336 px-4 mx-auto">
+    class="w-full md:w-336 px-2 mx-auto">
 
         <div>
 
