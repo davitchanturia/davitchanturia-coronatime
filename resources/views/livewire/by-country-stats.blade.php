@@ -1,4 +1,3 @@
-{{-- @if($countries->count() > 0) --}}
 <div>
     {{-- search --}}
     <div class="w-full md:w-64 flex text-gray-200 border border-gray-200 rounded-lg px-3 py-1 relative overflow-hidden">
@@ -129,6 +128,3 @@
     @endif
 
 </div>
-{{-- @else 
-<p class="text-center text-lg mt-28">Statistics were not found, try later!</p>
-@endif --}}
