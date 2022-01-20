@@ -129,4 +129,5 @@ class GenerateDataFromAPiTest extends TestCase
 			'deaths'    => 477,
 		]);
 	}
+
 }

@@ -48,12 +48,6 @@ class generateApiData extends Command
 		{
 			$this->execution($names);
 		}
-		else
-		{
-			$names = Http::retry(3, 100)->get('https://devtest.ge/countries');
-
-			$this->execution($names);
-		}
 
 		foreach ($this->countries as $country)
 		{
