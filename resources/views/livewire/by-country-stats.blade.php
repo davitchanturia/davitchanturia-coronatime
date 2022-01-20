@@ -1,4 +1,4 @@
-@if($quantity))
+{{-- @if($countries->count() > 0) --}}
 <div>
     {{-- search --}}
     <div class="w-full md:w-64 flex text-gray-200 border border-gray-200 rounded-lg px-3 py-1 relative overflow-hidden">
@@ -13,13 +13,14 @@
         </div>
     </div>
 
+    @if($countries->count() > 0)
     {{-- table --}}
     <div class="flex flex-col mt-10">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="text-left w-full">
-                        <thead class="bg-gray-50 flex w-full">
+                        <thead class="bg-gray-50 w-full">
                             <tr class="flex w-full">
                                 <th class="px-6 py-3 text-left text-xs font-bold text-darkBlack uppercase tracking-wider w-1/4">
                                         <div class="flex items-center">
@@ -105,7 +106,7 @@
                             </tr>
                         </thead>
 
-                        <tbody class="bg-white divide-y divide-gray-200 h-128 flex flex-col items-center justify-between overflow-y-scroll w-full" >
+                        <tbody class="bg-white divide-y divide-gray-200 @if($search) h-auto @endif h-128 flex flex-col items-center justify-between overflow-y-scroll w-full" >
                             @foreach ($countries as $country) 
                             <tr class="flex w-full">
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm font-medium text-darkBlack">{{ $country->getTranslation('name', App::getlocale() )}}</td>
@@ -114,6 +115,8 @@
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->deaths}}</td>
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->recovered}}</td>
                             </tr>
+                            {{-- @empty
+                            <p class="text-center text-lg mt-28">Statistics were not found, try later!</p> --}}
                             @endforeach
                         </tbody>
                     </table>
@@ -121,8 +124,11 @@
             </div>
         </div>
     </div>
+    @else 
+    <p class="text-center text-lg mt-28">Statistics were not found, try later!</p>
+    @endif
 
 </div>
-@else
-    <p class="text-center text-lg mt-28">Statistics were not found, try later!</p>
-@endif
+{{-- @else 
+<p class="text-center text-lg mt-28">Statistics were not found, try later!</p>
+@endif --}}
