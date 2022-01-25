@@ -40,14 +40,6 @@ class ResetPasswordController extends Controller
 			->queue(new ResetPassword($user->name, $token));
 
 		return view('forms.send-email');
-		// if (Mail::failures() != 0 )
-		// {
-		// 	return view('forms.send-email');
-		// }
-		// else
-		// {
-		// 	return redirect(route('reset.password', App::getLocale()));
-		// }
 	}
 
 	public function verify($token)

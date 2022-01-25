@@ -30,7 +30,7 @@ class VerificationEmail extends Mailable
 	 */
 	public function build()
 	{
-		return $this->from('hello@email.com')
+		return $this->from('coronatime@email.com')
 			->subject('Email Verification')
 			->markdown('email.verification');
 	}
