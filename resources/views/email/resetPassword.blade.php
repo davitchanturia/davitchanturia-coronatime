@@ -8,7 +8,6 @@
         click this button to recover a password
     </x-slot>
     
-    
     <x-slot name="buttonLink">
         {{ route('password.reset', $user['token']) }}
     </x-slot>

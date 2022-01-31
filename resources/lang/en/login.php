@@ -2,7 +2,7 @@
 
 return [
 	'welcome'                           => 'Welcome back',
-	'filltheform'                       => 'Welcome back! Please enter your details',
+	'filltheform'                       => 'Please enter your details',
 	'username'                          => 'Username',
 	'usernameplaceholder'               => 'Enter unique username or email',
 	'password'                          => 'Password',
