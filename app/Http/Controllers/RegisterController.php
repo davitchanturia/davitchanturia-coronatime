@@ -43,10 +43,4 @@ class RegisterController extends Controller
 
 		return view('forms.verifyed-email');
 	}
-
-	// public function verifyShow()
-	// {
-	// 	// return redirect(route('login', App::getLocale()));
-	// 	return view('forms.login');
-	// }
 }
