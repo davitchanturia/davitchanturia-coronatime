@@ -22,7 +22,6 @@ class ResetPasswordController extends Controller
 			'email' => 'required|email',
 		]);
 
-		//search user
 		$user = User::where('email', $request->email)->first();
 
 		if (!$user)

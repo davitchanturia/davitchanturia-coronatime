@@ -44,7 +44,6 @@ class RegisterPage extends Component
 			'email_verification_token'          => Str::random(64),
 		]);
 
-		//send email
 		Mail::to($user->email)
 			->queue(new VerificationEmail($user));
 
