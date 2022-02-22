@@ -26,7 +26,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 0,
 		]);
 
-		$countryTwo = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Germany', 'ka' => 'გერმანია'],
 			'code'      => 'UK',
 			'confirmed' => 122,
@@ -35,7 +35,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 5,
 		]);
 
-		$countryThree = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Australia', 'ka' => 'ავსტრალია'],
 			'code'      => 'GE',
 			'confirmed' => 1200,
@@ -55,7 +55,7 @@ class FiltersTest extends TestCase
 	{
 		$user = User::factory()->create();
 
-		$countryOne = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Georgia', 'ka' => 'საქართველო'],
 			'code'      => 'GE',
 			'confirmed' => 12,
@@ -64,7 +64,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 0,
 		]);
 
-		$countryTwo = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Germany', 'ka' => 'გერმანია'],
 			'code'      => 'UK',
 			'confirmed' => 122,
@@ -73,7 +73,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 5,
 		]);
 
-		$countryThree = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Australia', 'ka' => 'ავსტრალია'],
 			'code'      => 'GE',
 			'confirmed' => 1200,
@@ -94,7 +94,7 @@ class FiltersTest extends TestCase
 	{
 		$user = User::factory()->create();
 
-		$countryOne = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Georgia', 'ka' => 'საქართველო'],
 			'code'      => 'GE',
 			'confirmed' => 12,
@@ -103,7 +103,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 0,
 		]);
 
-		$countryTwo = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Germany', 'ka' => 'გერმანია'],
 			'code'      => 'UK',
 			'confirmed' => 122,
@@ -112,7 +112,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 5,
 		]);
 
-		$countryThree = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Australia', 'ka' => 'ავსტრალია'],
 			'code'      => 'GE',
 			'confirmed' => 1200,
@@ -131,7 +131,7 @@ class FiltersTest extends TestCase
 	{
 		$user = User::factory()->create();
 
-		$countryOne = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Georgia', 'ka' => 'საქართველო'],
 			'code'      => 'GE',
 			'confirmed' => 12,
@@ -140,7 +140,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 0,
 		]);
 
-		$countryTwo = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Germany', 'ka' => 'გერმანია'],
 			'code'      => 'UK',
 			'confirmed' => 122,
@@ -149,7 +149,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 5,
 		]);
 
-		$countryThree = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Australia', 'ka' => 'ავსტრალია'],
 			'code'      => 'GE',
 			'confirmed' => 1200,
@@ -168,7 +168,7 @@ class FiltersTest extends TestCase
 	{
 		$user = User::factory()->create();
 
-		$countryOne = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Georgia', 'ka' => 'საქართველო'],
 			'code'      => 'GE',
 			'confirmed' => 12,
@@ -177,7 +177,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 0,
 		]);
 
-		$countryTwo = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Germany', 'ka' => 'გერმანია'],
 			'code'      => 'UK',
 			'confirmed' => 122,
@@ -186,7 +186,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 5,
 		]);
 
-		$countryThree = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Australia', 'ka' => 'ავსტრალია'],
 			'code'      => 'GE',
 			'confirmed' => 1200,
@@ -206,7 +206,7 @@ class FiltersTest extends TestCase
 	{
 		$user = User::factory()->create();
 
-		$countryOne = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Georgia', 'ka' => 'საქართველო'],
 			'code'      => 'GE',
 			'confirmed' => 12,
@@ -215,7 +215,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 0,
 		]);
 
-		$countryTwo = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Germany', 'ka' => 'გერმანია'],
 			'code'      => 'UK',
 			'confirmed' => 122,
@@ -224,7 +224,7 @@ class FiltersTest extends TestCase
 			'deaths'    => 5,
 		]);
 
-		$countryThree = Country::factory()->create([
+		Country::factory()->create([
 			'name'      => ['en' => 'Australia', 'ka' => 'ავსტრალია'],
 			'code'      => 'GE',
 			'confirmed' => 1200,

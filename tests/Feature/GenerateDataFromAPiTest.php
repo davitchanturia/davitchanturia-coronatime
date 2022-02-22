@@ -98,7 +98,7 @@ class GenerateDataFromAPiTest extends TestCase
 
 		foreach ($countries as $el)
 		{
-			$coun = Country::create(
+			Country::create(
 				[
 					'code'      => $el['code'],
 					'name'      => [
@@ -129,5 +129,4 @@ class GenerateDataFromAPiTest extends TestCase
 			'deaths'    => 477,
 		]);
 	}
-
 }

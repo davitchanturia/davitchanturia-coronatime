@@ -23,7 +23,7 @@ class ResetPasswordTest extends TestCase
 
 	public function test_after_entering_wrong_email_app_redirects_on_login()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email' => 'test@test.com',
 		]);
 
@@ -70,7 +70,7 @@ class ResetPasswordTest extends TestCase
 
 	public function test_when_reset_password_email_is_send_user_gets_invalid_token_redirects_to_start_page()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email'                    => 'shavdia@mail.ru',
 		]);
 
@@ -81,7 +81,7 @@ class ResetPasswordTest extends TestCase
 
 	public function test_if_user_does_not_exists_redirects_to_reset_password_route()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email'                    => 'shavdia@mail.ru',
 			'is_verified'              => 1,
 			'token'                    => Str::random(60),
@@ -99,7 +99,7 @@ class ResetPasswordTest extends TestCase
 
 	public function test_when_user_changes_password_app_saves()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email'                    => 'shavdia@mail.ru',
 			'is_verified'              => 1,
 			'token'                    => Str::random(60),

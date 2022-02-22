@@ -38,7 +38,7 @@ class InfoTest extends TestCase
 	{
 		$user = User::factory()->create();
 
-		$country = Country::factory()->create([
+		Country::factory()->create([
 			'confirmed' => '123456',
 		]);
 

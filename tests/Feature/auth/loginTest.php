@@ -22,7 +22,7 @@ class loginTest extends TestCase
 
 	public function test_user_can_login_with_username()
 	{
-		$user = User::factory()->create([
+	    User::factory()->create([
 			'username' => 'gela',
 			'password' => 'gela123',
 		]);
@@ -38,7 +38,7 @@ class loginTest extends TestCase
 
 	public function test_user_can_login_with_email()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email'    => 'gela@test.ge',
 			'username' => 'gela',
 			'password' => 'gela123',
@@ -55,7 +55,7 @@ class loginTest extends TestCase
 
 	public function test_if_user_does_not_exists_message_appeares()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email'    => 'gela@gela.ge',
 			'username' => 'gela',
 			'password' => 'gela123',
@@ -70,7 +70,7 @@ class loginTest extends TestCase
 
 	public function test_if_user_does_not_exists_message_appeares_when_login_with_email()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'email'    => 'gela@gela.ge',
 			'username' => 'gela',
 			'password' => 'gela123',
@@ -85,7 +85,7 @@ class loginTest extends TestCase
 
 	public function test_if_user_does_not_exists_after_login_message_appeares()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'username' => 'gela',
 			'password' => 'gela123',
 		]);
@@ -99,7 +99,7 @@ class loginTest extends TestCase
 
 	public function test_unveryfied_user_redirects_on_the_message_route()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'username'          => 'gela',
 			'password'          => 'gela123',
 			'email_verified_at' => null,

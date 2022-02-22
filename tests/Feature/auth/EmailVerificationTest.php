@@ -47,7 +47,7 @@ class EmailVerificationTest extends TestCase
 			'email_verified_at'        => null,
 		]);
 
-		$response = $this->actingAs($user)
+		$this->actingAs($user)
 			->get(route('verify.email', $user->email_verification_token));
 
 		$this->assertDatabaseHas('users', [
@@ -60,7 +60,7 @@ class EmailVerificationTest extends TestCase
 
 	public function test_verificated_user_can_log_in()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'username'          => 'gela',
 			'password'          => 'gela123',
 			'email_verified_at' => now(),
