@@ -114,8 +114,6 @@
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->deaths}}</td>
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->recovered}}</td>
                             </tr>
-                            {{-- @empty
-                            <p class="text-center text-lg mt-28">Statistics were not found, try later!</p> --}}
                             @endforeach
                         </tbody>
                     </table>
