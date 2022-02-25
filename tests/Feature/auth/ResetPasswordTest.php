@@ -27,7 +27,7 @@ class ResetPasswordTest extends TestCase
 			'email' => 'test@test.com',
 		]);
 
-		$response = $this->post(route('send.reset.password', [
+		$response = $this->post(route('send.reset-password', [
 			'lang'  => App::getLocale(),
 			'email' => 'sad@test.ge',
 		]));
@@ -41,7 +41,7 @@ class ResetPasswordTest extends TestCase
 			'email'             => 'shavdia@mail.ru',
 		]);
 
-		$this->post(route('send.reset.password', [
+		$this->post(route('send.reset-password', [
 			App::getLocale(),
 			'email' => 'shavdia@mail.ru',
 		]));

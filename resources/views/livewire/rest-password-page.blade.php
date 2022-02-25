@@ -5,7 +5,7 @@
     
     <div class="mt-36 w-full">
         <h1 class="font-bold text-darkBlack text-2xl text-center">Reset Password</h1>
-        <form method='POST' action='{{ route('send.reset.password', App::getLocale()) }}' class="w-99 mx-auto">
+        <form method='POST' action='{{ route('send.reset-password', App::getLocale()) }}' class="w-99 mx-auto">
             @csrf
             <div class="mt-6">
                 <label for="email font-bold">Email</label> <br>
