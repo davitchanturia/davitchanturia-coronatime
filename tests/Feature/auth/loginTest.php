@@ -22,7 +22,7 @@ class loginTest extends TestCase
 
 	public function test_user_can_login_with_username()
 	{
-	    User::factory()->create([
+		User::factory()->create([
 			'username' => 'gela',
 			'password' => 'gela123',
 		]);
@@ -51,21 +51,6 @@ class loginTest extends TestCase
 			->assertRedirect(route('home', ['lang' => App::getLocale()]));
 
 		$this->assertAuthenticated();
-	}
-
-	public function test_if_user_does_not_exists_message_appeares()
-	{
-		User::factory()->create([
-			'email'    => 'gela@gela.ge',
-			'username' => 'gela',
-			'password' => 'gela123',
-		]);
-
-		Livewire::test(LoginPage::class)
-			->set('username', 'gela')
-			->set('password', 'gela1234')
-			->call('loginUser')
-			->assertSee('your provided credentials is incorrect');
 	}
 
 	public function test_if_user_does_not_exists_message_appeares_when_login_with_email()

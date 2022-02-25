@@ -49,9 +49,7 @@ class LoginPage extends Component
 			}
 			else
 			{
-				throw ValidationException::withMessages([
-					'notFound' => 'your provided credentials could not be found',
-				]);
+				throw ValidationException::withMessages(['notFound' => 'your provided credentials could not be found']);
 			}
 		}
 		else
