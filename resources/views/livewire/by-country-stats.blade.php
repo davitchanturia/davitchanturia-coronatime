@@ -110,7 +110,6 @@
                             <tr class="flex w-full">
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm font-medium text-darkBlack">{{ $country->getTranslation('name', App::getlocale() )}}</td>
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->confirmed }}</td>
-                                {{-- <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->critical}}</td> --}}
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->deaths}}</td>
                                 <td class="px-6 py-4 w-1/4 whitespace-nowrap text-sm text-darkBlack">{{ $country->recovered}}</td>
                             </tr>
