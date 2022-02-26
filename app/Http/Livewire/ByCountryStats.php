@@ -29,7 +29,6 @@ class ByCountryStats extends Component
 		}
 	}
 
-	//sorting
 	public function up($column)
 	{
 		if ($this->search)

@@ -13,8 +13,14 @@ class Info extends Component
 		$this->text = trans('text.Worldwidestatistics');
 	}
 
-	// after changing tab header will change as well
-	public function changeText($openTab)
+    /**
+	 * After changing tab header will change as well.
+	 * 
+	 * @param mixed $openTab it is active tab
+	 * @return void
+	 */	
+	
+	 public function changeText($openTab)
 	{
 		$info = ['1' => 'text.Worldwidestatistics', '2' => 'text.Countrystatistics'];
 		$this->text = trans($info[$openTab]);
