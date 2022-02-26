@@ -54,10 +54,10 @@ class LoginPage extends Component
 		}
 		else
 		{
-			$ifExistsInDatabase = User::where('username', $credentials['username'])->first();
-			if ($ifExistsInDatabase)
+			$user = User::where('username', $credentials['username'])->first();
+			if ($user)
 			{
-				if ($ifExistsInDatabase->email_verified_at)
+				if ($user->email_verified_at)
 				{
 					$this->login('username');
 				}
