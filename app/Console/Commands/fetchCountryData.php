@@ -3,18 +3,17 @@
 namespace App\Console\Commands;
 
 use App\Models\Country;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
-class generateApiData extends Command
+class fetchCountryData extends Command
 {
 	/**
 	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $signature = 'create:generate-data';
+	protected $signature = 'fetch:country-data';
 
 	/**
 	 * The console command description.
