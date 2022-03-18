@@ -36,7 +36,7 @@ class AuthController extends Controller
 
 		if (!isset($user))
 		{
-			return response(404);
+			return response(404)->json(['message' => 'not found']);
 		}
 
 		$user->email_verified_at = Carbon::now();
