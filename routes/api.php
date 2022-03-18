@@ -23,3 +23,4 @@ Route::get('/authenticated', [AuthController::class, 'checkLoggedIn']);
 Route::post('/verify/{token}', [AuthController::class, 'verifyEmail'])->name('verify');
 
 Route::post('/register', [AuthController::class, 'register'])->name('registration');
+Route::post('/login', [AuthController::class, 'login'])->name('login.user');

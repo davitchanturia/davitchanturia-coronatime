@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use App\Mail\VerificationEmail;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ApiRequests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ApiRequests\RegisterRequest;
@@ -28,6 +29,20 @@ class AuthController extends Controller
 			->queue(new VerificationEmail($user));
 
 		return response(200);
+	}
+
+	public function login(LoginRequest $request)
+	{
+		$attributes = $request->validated();
+
+		if (Auth::attempt($attributes))
+		{
+			return response(204);
+		}
+		else
+		{
+			dd('arari');
+		}
 	}
 
 	public function verifyEmail($token)
