@@ -45,6 +45,13 @@ class AuthController extends Controller
 		}
 	}
 
+	public function logout()
+	{
+		Auth::logout();
+
+		return response(200);
+	}
+
 	public function verifyEmail($token)
 	{
 		$user = User::where('email_verification_token', $token)->first();
