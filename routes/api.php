@@ -19,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 // 	return $request->user();
 // });
 
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/authenticated', [AuthController::class, 'checkLoggedIn']);
+Route::post('/verify/{token}', [AuthController::class, 'verifyEmail'])->name('verify');
+
+Route::post('/register', [AuthController::class, 'register'])->name('registration');

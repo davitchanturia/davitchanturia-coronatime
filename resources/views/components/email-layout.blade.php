@@ -21,7 +21,7 @@
     <center>
         <a 
             style="color:white; background:#0FBA68; font-weight:bold; border-radius:9px; border:none; padding:8px 68px; text-decoration:none;"
-            href="{{ $buttonLink }}" class="btn">
+            href={{ $buttonLink }} class="btn">
             {{ $buttonText }}
         </a>
     </center>
