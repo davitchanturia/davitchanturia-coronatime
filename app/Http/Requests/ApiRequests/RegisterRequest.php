@@ -28,6 +28,7 @@ class RegisterRequest extends FormRequest
 			'email'                 => 'required|min:3|unique:users',
 			'password'              => 'required|min:3',
 			'repeatPassword'        => 'required|same:password',
+			'remember'              => 'required',
 		];
 
 		return $rules;

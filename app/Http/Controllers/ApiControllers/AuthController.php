@@ -45,7 +45,7 @@ class AuthController extends Controller
 			{
 				if ($user->email_verified_at)
 				{
-					if (Auth::attempt(['username' => $attributes['username'], 'password' => $attributes['password']]))
+					if (Auth::attempt(['username' => $attributes['username'], 'password' => $attributes['password']], $attributes['remember']))
 					{
 						return response(204);
 					}
@@ -72,7 +72,7 @@ class AuthController extends Controller
 			{
 				if ($user->email_verified_at)
 				{
-					if (Auth::attempt(['email' => $attributes['username'], 'password' => $attributes['password']]))
+					if (Auth::attempt(['email' => $attributes['username'], 'password' => $attributes['password']], $attributes['remember']))
 					{
 						return response(204);
 					}
