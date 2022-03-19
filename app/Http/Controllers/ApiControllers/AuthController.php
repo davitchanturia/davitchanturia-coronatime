@@ -35,13 +35,61 @@ class AuthController extends Controller
 	{
 		$attributes = $request->validated();
 
-		if (Auth::attempt($attributes))
+		$fieldType = filter_var($attributes['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+		if ($fieldType === 'username')
 		{
-			return response(204);
+			$user = User::where('username', $attributes['username'])->first();
+
+			if ($user)
+			{
+				if ($user->email_verified_at)
+				{
+					if (Auth::attempt(['username' => $attributes['username'], 'password' => $attributes['password']]))
+					{
+						return response(204);
+					}
+					else
+					{
+						return response()->json(['message' => 'your provided credentials not found'], 401);
+					}
+				}
+				else
+				{
+					return response()->json(['message' => 'please verify your email'], 401);
+				}
+			}
+			else
+			{
+				return response()->json(['message' => 'your provided credentials not found'], 401);
+			}
 		}
 		else
 		{
-			dd('arari');
+			$user = User::where('email', $attributes['username'])->first();
+
+			if ($user)
+			{
+				if ($user->email_verified_at)
+				{
+					if (Auth::attempt(['email' => $attributes['username'], 'password' => $attributes['password']]))
+					{
+						return response(204);
+					}
+					else
+					{
+						return response()->json(['message' => 'your provided credentials not found'], 401);
+					}
+				}
+				else
+				{
+					return response()->json(['message' => 'please verify your email'], 401);
+				}
+			}
+			else
+			{
+				return response()->json(['message' => 'your provided credentials not found'], 401);
+			}
 		}
 	}
 
