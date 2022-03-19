@@ -115,15 +115,15 @@ class AuthController extends Controller
 		return response()->json(['success' => 'email verified successfuly']);
 	}
 
-	public function checkLoggedIn()
+	public function checkLoggedIn($page)
 	{
 		if (Auth::check())
 		{
-			return response()->json(['isLoggedIn' => 'true']);
+			return response()->json(['isLoggedIn' => 'true', 'page' => $page]);
 		}
 		else
 		{
-			return response()->json(['isLoggedIn' => 'false']);
+			return response()->json(['isLoggedIn' => 'false', 'page' => $page]);
 		}
 	}
 }
