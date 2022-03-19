@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiControllers\AuthController;
+use App\Http\Controllers\ApiControllers\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::post('/verify/{token}', [AuthController::class, 'verifyEmail'])->name('ve
 Route::post('/register', [AuthController::class, 'register'])->name('registration');
 Route::post('/login', [AuthController::class, 'login'])->name('login.user');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout.user');
+
+Route::post('/reset-password', [ResetPasswordController::class, 'send'])->name('send.reset-password.email');
+Route::post('/update-password', [ResetPasswordController::class, 'update'])->name('update.reset-password');

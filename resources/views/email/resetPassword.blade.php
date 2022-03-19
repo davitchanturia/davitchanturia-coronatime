@@ -9,8 +9,7 @@
     </x-slot>
     
     <x-slot name="buttonLink">
-        {{ route('password.reset', $user['token']) }}
-    </x-slot>
+        {{"http://localhost:3000/update-password/".$token}}</x-slot>
     
     <x-slot name="buttonText">
         RECOVER PASSWORD
