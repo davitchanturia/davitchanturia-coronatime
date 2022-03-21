@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiControllers\AuthController;
+use App\Http\Controllers\ApiControllers\ContentController;
 use App\Http\Controllers\ApiControllers\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout.user');
 
 Route::post('/reset-password', [ResetPasswordController::class, 'send'])->name('send.reset-password.email');
 Route::post('/update-password', [ResetPasswordController::class, 'update'])->name('update.reset-password');
+
+Route::get('/data', [ContentController::class, 'index'])->name('country.data');

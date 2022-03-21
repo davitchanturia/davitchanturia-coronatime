@@ -119,7 +119,7 @@ class AuthController extends Controller
 	{
 		if (Auth::check())
 		{
-			return response()->json(['isLoggedIn' => 'true', 'page' => $page]);
+			return response()->json(['isLoggedIn' => 'true', 'page' => $page, 'user' => Auth::user()]);
 		}
 		else
 		{
