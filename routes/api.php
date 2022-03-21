@@ -31,4 +31,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout.user');
 Route::post('/reset-password', [ResetPasswordController::class, 'send'])->name('send.reset-password.email');
 Route::post('/update-password', [ResetPasswordController::class, 'update'])->name('update.reset-password');
 
-Route::get('/data', [ContentController::class, 'index'])->name('country.data');
+Route::get('/data', [ContentController::class, 'index'])->name('country.data')->middleware('auth:sanctum');
+Route::get('/search', [ContentController::class, 'search'])->name('search.data');
