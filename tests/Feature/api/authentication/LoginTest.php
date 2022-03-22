@@ -164,7 +164,7 @@ class LoginTest extends TestCase
 
 	public function test_after_check_user_is_not_logged_in()
 	{
-		$user = User::factory()->create([
+		User::factory()->create([
 			'username'              => 'avtia',
 			'email'                 => 'avtia@test.ge',
 			'password'              => 'password',
