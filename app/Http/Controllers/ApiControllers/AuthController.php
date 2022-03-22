@@ -106,7 +106,7 @@ class AuthController extends Controller
 
 		if (!isset($user))
 		{
-			return response(404)->json(['message' => 'not found']);
+			return response()->json(['message' => 'not found'], 404);
 		}
 
 		$user->email_verified_at = Carbon::now();
@@ -119,7 +119,7 @@ class AuthController extends Controller
 	{
 		if (Auth::check())
 		{
-			return response()->json(['isLoggedIn' => 'true', 'page' => $page, 'user' => Auth::user()]);
+			return response()->json(['isLoggedIn' => 'true', 'page' => $page, 'user' => Auth::user()], 200);
 		}
 		else
 		{

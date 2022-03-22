@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // 	return $request->user();
 // });
 
-Route::get('/authenticated/{page}', [AuthController::class, 'checkLoggedIn']);
+Route::get('/authenticated/{page}', [AuthController::class, 'checkLoggedIn'])->name('is.authenticated');
 Route::post('/verify/{token}', [AuthController::class, 'verifyEmail'])->name('verify');
 
 Route::post('/register', [AuthController::class, 'register'])->name('registration');

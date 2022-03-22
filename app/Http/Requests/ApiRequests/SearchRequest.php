@@ -24,8 +24,8 @@ class SearchRequest extends FormRequest
 	public function rules()
 	{
 		return $rules = [
-			'search'   => '',
-			'locale'   => 'required',
+			'search'        => '',
+			'locale'        => 'required',
 		];
 
 		return $rules;

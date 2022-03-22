@@ -61,7 +61,7 @@ class GenerateDataFromAPiTest extends TestCase
 			],
 		);
 
-		$this->artisan('create:generate-data');
+		$this->artisan('fetch:country-data');
 
 		$countries = [];
 

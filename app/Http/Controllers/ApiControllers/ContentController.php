@@ -11,9 +11,9 @@ class ContentController extends Controller
 	public function index()
 	{
 		$worldStats = [
-			'newCases'  => number_format(Country::sum('confirmed')),
-			'recovered' => number_format(Country::sum('recovered')),
-			'death'     => number_format(Country::sum('deaths')),
+			'confirmed'  => number_format(Country::sum('confirmed')),
+			'recovered'  => number_format(Country::sum('recovered')),
+			'deaths'     => number_format(Country::sum('deaths')),
 		];
 
 		return response()->json([
