@@ -61,7 +61,7 @@ This app is also used as api for react aplication. you can visit it here -->> li
 
 <h2 id="gettingStarted">Getting Started</h2>
 
-1\. First of all you need to clone Movie Quote repository from github:
+1\. First of all you need to clone Coronatime repository from github:
 ```sh
 git clone https://github.com/RedberryInternship/davitchanturia-coronatime.git
 ```
