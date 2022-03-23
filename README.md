@@ -1,66 +1,121 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 style="text-align:center;">Coronatime</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to the Coronatime web-aplication, it is a place where you can see latest worldwide and certain country statistics in two languages(english and georgian). you can search and filter information as you wish. to see this information you have to register an verify your email. 
 
-## About Laravel
+This app is also used as api for react aplication. you can visit it here -->> link goes here
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<img src="public/img/readme-dashboard.png"/>
+<img src="public/img/readme-login.png"/>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Table of Contents
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* [Prerequisites](#req)
+* [Packages](#packages)
+* [Getting Started](#gettingStarted)
+* [Resources](#resources)
+* [API](#API)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#
+<h2 id="req">Prerequisites:</h2>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<table>
+    <tr>
+        <td>* </td>
+        <td>Laravel 8</td>
+    </tr>
+    <tr>
+        <td>* </td>
+        <td>PHP 8.0.11</td>
+    </tr>
+       <tr>
+        <td>* </td>
+        <td>Livewire 2.8</td>
+    </tr>
+     <tr>
+        <td>* </td>
+        <td>laravel/sanctum 2.11</td>
+    </tr>
+    <tr>
+        <td>* </td>
+        <td>Sqlite 3</td>
+    </tr>
+    <tr>
+        <td>*</td>
+        <td>npm 6.14.15</td>
+    </tr>
+    <tr>
+        <td>* </td>
+        <td>composer 2.1.9</td>
+    </tr>
+</table>
 
-## Laravel Sponsors
+<h2 id="packages">packages:</h2>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<table>
+    <tr>
+        <td>* </td>
+        <td>spatie/laravel-translatable</td>
+    </tr>
+</table>
 
-### Premium Partners
+<h2 id="gettingStarted">Getting Started</h2>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+1\. First of all you need to clone Movie Quote repository from github:
+```sh
+git clone https://github.com/RedberryInternship/davitchanturia-coronatime.git
+```
+2\. Next step requires you to run *composer install* in order to install all the dependencies.
+```sh
+composer install
 
-## Contributing
+3\. Now we need to set our env file. Go to the root of your project and execute this command.
+```sh
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+And now you should provide **.env** file all the necessary environment variables. All you need here is DB_CONNECTION :
+```sh
+DB_CONNECTION=sqlite
 
-## Code of Conduct
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=587
+MAIL_USERNAME=61c7f9de772974
+MAIL_PASSWORD=98dc03231cbb51
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=coronatime@test.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+* For using this aplication as API you should provid sanctum variables: 
+```sh
+SANCTUM_STATEFUL_DOMAINS=localhost:3000,localhost:3002,localhost:8000,127.0.0.1:3002,127.0.0.1:3000,127.0.0.1:8000
+FRONT_ADDRESS_CONFIRMED=http://localhost:3000/confirmed
+SESSION_DOMAIN=localhost
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4\. Now execute in the root of you project following:
+```sh
+  php artisan key:generate
+```
+Which generates auth key.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5\. Make MYSQL database user and connect to this projects, then you can execute the commands: 
+```sh
+  php artisan migrate
+  php artisan db:seed
+```
 
-## License
+6\. You also need to make a storage link for the images with the command, mentioned below and change the FILESYSTEM_DRIVER to public in your .env file:
+```sh
+  php artisan storage:link
+  FILESYSTEM_DRIVER=local
+```
+8\. Then install translatable package
+```sh
+composer require spatie/laravel-translatable
+```
+<h2 id="API">API:</h2>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+For API specifications you can visit aplication's Swager documentation.
